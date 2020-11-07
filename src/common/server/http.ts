@@ -1,16 +1,19 @@
 import { createTerminus } from '@godaddy/terminus';
 import * as express from 'express';
 import * as http from 'http';
+import { Logger } from '../logger/logger';
 
 export class HttpServer {
   private readonly app = express();
 
+  constructor(private readonly logger: Logger) {}
+
   private async gracefulShutdown() {
-    console.log('Shutting down server...');
+    this.logger.info('Shutting down server...');
   }
 
   private async onHealthCheck() {
-    console.log('Health check');
+    this.logger.info('Health check');
   }
 
   start(port = 3000) {
@@ -27,7 +30,7 @@ export class HttpServer {
     });
 
     server.listen(port, () => {
-      console.log(`Server running at http://localhost:${port}/`);
+      this.logger.info(`Server running at http://localhost:${port}/`);
     });
   }
 }

@@ -1,5 +1,7 @@
+import { WinstonLogger } from './common/logger/winstonLogger';
 import { HttpServer } from './common/server/http';
 
-const httpServer = new HttpServer();
+const winstonLogger = new WinstonLogger();
+const httpServer = new HttpServer(winstonLogger);
 
 httpServer.start();
