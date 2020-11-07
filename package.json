@@ -1,0 +1,9 @@
+{
+  "name": "TDD-Typescript",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "repository": "git@github.com:tetrash/TDD-Typescript.git",
+  "author": "Karol Szymanowski <szyma.karol@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
