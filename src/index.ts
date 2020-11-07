@@ -1,5 +1,5 @@
-function start() {
-  console.log('Hello world!');
-}
+import { HttpServer } from './common/server/http';
 
-start();
+const httpServer = new HttpServer();
+
+httpServer.start();
