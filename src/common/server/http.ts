@@ -5,7 +5,13 @@ import * as swaggerUi from 'swagger-ui-express';
 import * as path from 'path';
 import * as glob from 'glob';
 import * as yaml from 'yamljs';
+import * as cors from 'cors';
 import { Logger } from '../logger/logger';
+
+export interface CorsOptions {
+  origin: string;
+  optionsSuccessStatus: number;
+}
 
 export class HttpServer {
   private readonly app = express();
@@ -30,6 +36,10 @@ export class HttpServer {
       this.app.use(url, swaggerUi.serve, swaggerUi.setup(swaggerDocument));
       this.logger.info(`Loaded documentation "${name}" ${this.baseUrl}:${this.port}${url}/`);
     });
+  }
+
+  setupCors(opts?: CorsOptions) {
+    this.app.use(cors(opts));
   }
 
   start() {
