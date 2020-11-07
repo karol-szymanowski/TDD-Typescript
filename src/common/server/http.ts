@@ -6,6 +6,7 @@ import * as path from 'path';
 import * as glob from 'glob';
 import * as yaml from 'yamljs';
 import * as cors from 'cors';
+import * as helmet from 'helmet';
 import { Logger } from '../logger/logger';
 
 export interface CorsOptions {
@@ -39,7 +40,13 @@ export class HttpServer {
   }
 
   setupCors(opts?: CorsOptions) {
+    this.logger.info('Setting up cors');
     this.app.use(cors(opts));
+  }
+
+  setupMiddleware() {
+    this.logger.info('Setting up middlewares');
+    this.app.use(helmet());
   }
 
   start() {

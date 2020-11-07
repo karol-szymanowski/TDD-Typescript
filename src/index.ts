@@ -12,6 +12,7 @@ async function init() {
   const httpServer = new HttpServer(winstonLogger, config.port);
 
   httpServer.setupCors();
+  httpServer.setupMiddleware();
   httpServer.setupDocs('./api/openapi');
   httpServer.start();
 }
