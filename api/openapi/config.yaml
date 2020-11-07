@@ -1,7 +1,7 @@
 # App config service
 # An admin can store a key and a value for a specific app (client) and version
 # A client can get all changed config fields since the last received change for a specific client and version
-swagger: '2.0'
+swagger: "2.0"
 info:
   title: Config API
   description: Fetch Config for requested client version
@@ -48,6 +48,16 @@ paths:
           description: Not Found
     patch:
       parameters:
+        - name: client
+          in: path
+          type: string
+          required: true
+          description: Identifier for the client. E.g. "ios"
+        - name: version
+          in: path
+          type: number
+          required: true
+          description: Build version of the client. E.g. 267
         - name: body
           in: body
           required: true
@@ -62,6 +72,16 @@ paths:
           description: Bad request, e.g. type of value is different to existing, key is invalid
     put:
       parameters:
+        - name: client
+          in: path
+          type: string
+          required: true
+          description: Identifier for the client. E.g. "ios"
+        - name: version
+          in: path
+          type: number
+          required: true
+          description: Build version of the client. E.g. 267
         - name: body
           in: body
           required: true
@@ -73,6 +93,17 @@ paths:
         404:
           description: Not Found
     delete:
+      parameters:
+        - name: client
+          in: path
+          type: string
+          required: true
+          description: Identifier for the client. E.g. "ios"
+        - name: version
+          in: path
+          type: number
+          required: true
+          description: Build version of the client. E.g. 267
       responses:
         204:
           description: No Content
