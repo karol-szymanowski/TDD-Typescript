@@ -11,7 +11,7 @@ export class HttpServer {
   private readonly app = express();
   private readonly baseUrl = 'http://localhost';
 
-  constructor(private readonly logger: Logger, private readonly port = 3000) {}
+  constructor(private readonly logger: Logger, private readonly port: number) {}
 
   private async gracefulShutdown() {
     this.logger.info('Shutting down server...');
