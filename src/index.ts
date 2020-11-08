@@ -3,6 +3,8 @@ import { HttpServer } from './common/server/http';
 import { Configs } from './common/config/config';
 import { validateOrReject } from 'class-validator';
 
+import { configRouter } from './config/ports/http';
+
 const config = new Configs();
 const winstonLogger = new WinstonLogger(config.logLevel);
 
@@ -14,6 +16,7 @@ async function init() {
   httpServer.setupCors();
   httpServer.setupMiddleware();
   httpServer.setupDocs('./api/openapi');
+  httpServer.loadRoutes([{ prefix: 'config', router: configRouter }]);
   httpServer.start();
 }
 
