@@ -1,7 +1,6 @@
 import { IsNumber, IsString, NotEquals } from 'class-validator';
-import { ClientConfig } from '../domain/clientConfig/clientConfig';
 
-export class CreateClientConfigDto implements ClientConfig {
+export class CreateClientConfigDto {
   constructor(obj: Partial<CreateClientConfigDto>) {
     Object.assign(this, obj);
   }
