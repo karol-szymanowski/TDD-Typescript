@@ -1,7 +1,7 @@
 import { IsNumber, IsString, NotEquals } from 'class-validator';
 
-export class CreateConfigDto {
-  constructor(obj: Partial<CreateConfigDto>) {
+export class UpdateConfigDto {
+  constructor(obj: Partial<UpdateConfigDto>) {
     Object.assign(this, obj);
   }
 
