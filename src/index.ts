@@ -3,10 +3,10 @@ import { HttpServer } from './common/server/http';
 import { Configs } from './common/config/config';
 import { validateOrReject } from 'class-validator';
 
-const winstonLogger = new WinstonLogger();
+const config = new Configs();
+const winstonLogger = new WinstonLogger(config.logLevel);
 
 async function init() {
-  const config = new Configs();
   await validateOrReject(config);
 
   const httpServer = new HttpServer(winstonLogger, config.port);

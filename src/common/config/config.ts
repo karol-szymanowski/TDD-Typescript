@@ -1,4 +1,4 @@
-import { IsInt } from 'class-validator';
+import { IsIn, IsInt } from 'class-validator';
 
 export interface Config {
   port: number;
@@ -13,4 +13,7 @@ export class Configs implements Config {
 
   @IsInt()
   port: number = Number(process.env.PORT) || 3000;
+
+  @IsIn(['debug', 'info', 'warn', 'error'])
+  logLevel: string = process.env.LOG_LEVEL || 'info';
 }
