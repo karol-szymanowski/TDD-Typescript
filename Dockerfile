@@ -9,6 +9,4 @@ COPY . .
 
 RUN yarn build
 
-RUN yarn install --production --ignore-scripts --prefer-offline
-
 CMD ["node", "./dist/index.js"]
