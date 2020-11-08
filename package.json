@@ -9,7 +9,9 @@
   "scripts": {
     "start:dev": "ts-node-dev --respawn src/index.ts",
     "test": "jest",
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "eslint",
+    "cleanup": "rm -rf ./dist ./node_modules"
   },
   "dependencies": {
     "@godaddy/terminus": "^4.4.1",
