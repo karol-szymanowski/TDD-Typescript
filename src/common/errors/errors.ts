@@ -1,10 +1,10 @@
-enum ErrorType {
+export enum ErrorType {
   IncorrectInput = 'INCORRECT_INPUT',
   Internal = 'INTERNAL',
   NotFound = 'NOT_FOUND',
 }
 
-abstract class CustomError extends Error {
+export abstract class CustomError extends Error {
   constructor(public readonly errorDetails: any, msg?: string) {
     super(msg || errorDetails.toString());
   }
