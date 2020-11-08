@@ -6,4 +6,6 @@ export interface Logger {
   error(msg: string): void;
 
   warn(msg: string): void;
+
+  critical(msg: string): void;
 }

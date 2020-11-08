@@ -33,4 +33,8 @@ export class WinstonLogger implements Logger {
   warn(msg: string): void {
     this.logger.warn(msg);
   }
+
+  critical(msg: string): void {
+    this.logger.crit(msg);
+  }
 }

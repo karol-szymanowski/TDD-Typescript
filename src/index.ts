@@ -21,6 +21,6 @@ async function init() {
 }
 
 init().catch((err) => {
-  winstonLogger.error(err);
+  winstonLogger.critical(err);
   process.exit(1);
 });
